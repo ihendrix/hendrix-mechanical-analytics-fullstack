@@ -1,0 +1,26 @@
+{
+  "name": "hendrix-mechanical-analytics-fullstack",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "axios": "latest",
+    "plotly.js": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-plotly.js": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-plotly.js": "latest",
+    "typescript": "latest"
+  }
+}
