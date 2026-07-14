@@ -35,9 +35,10 @@ export async function uploadAnalyses(files: File[], settings: Record<string, str
     formData.append(key, String(value));
   });
 
-  const response = await axios.post(`${API_BASE_URL}/api/analyses/upload`, formData, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
+  const response = await axios.post(
+  `${API_BASE_URL}/api/analyses/upload`,
+  formData
+);
 
   return response.data.results as AnalysisResult[];
 }
