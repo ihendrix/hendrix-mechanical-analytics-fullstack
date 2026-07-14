@@ -10,11 +10,11 @@ The platform allows researchers to upload mechanical-testing data, automatically
 
 **Application**
 
-https://your-vercel-app.vercel.app
+[https://your-vercel-app.vercel.app](https://hendrix-mechanical-analytics-fullst.vercel.app/)
 
 **API Documentation**
 
-https://your-render-backend.onrender.com/docs
+[https://your-render-backend.onrender.com/docs](https://hendrix-mechanical-analytics-fullstack.onrender.com/docs)
 
 ---
 
