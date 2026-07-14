@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnalysisResult, uploadAnalyses } from "../api";
 import FileUploader from "../components/FileUploader";
+import axios from "axios";
 
 type Props = {
   onResults: (results: AnalysisResult[]) => void;
@@ -17,22 +18,37 @@ export default function UploadPage({ onResults }: Props) {
   const [loading, setLoading] = useState(false);
 
   async function handleUpload() {
-    setLoading(true);
+  if (!files.length) return;
 
-    try {
-      const results = await uploadAnalyses(files, {
-        smoothing,
-        smooth_window: smoothWindow,
-        remove_outliers: removeOutliers,
-        crop_failure: cropFailure,
-        modulus_min: modulusMin,
-        modulus_max: modulusMax,
-      });
-      onResults(results);
-    } finally {
-      setLoading(false);
+  setLoading(true);
+
+  try {
+    const results = await uploadAnalyses(files, {
+      smoothing,
+      smooth_window: smoothWindow,
+      remove_outliers: removeOutliers,
+      crop_failure: cropFailure,
+      modulus_min: modulusMin,
+      modulus_max: modulusMax,
+    });
+
+    onResults(results);
+  } catch (error) {
+    console.error("Analysis upload failed:", error);
+
+    if (axios.isAxiosError(error)) {
+      alert(
+        error.response?.data?.detail
+          ? JSON.stringify(error.response.data.detail)
+          : `Upload failed: ${error.message}`
+      );
+    } else {
+      alert("Upload failed because of an unknown error.");
     }
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <section className="panel upload-grid">
