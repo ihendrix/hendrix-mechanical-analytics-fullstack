@@ -1,298 +1,181 @@
-Hendrix Mechanical Analytics Full-Stack
+# Hendrix Mechanical Analytics Full-Stack
 
-Hendrix Mechanical Analytics Full-Stack is a cloud-based mechanical testing analysis platform for transforming raw stress–strain datasets into interactive visualizations, automated material-property calculations, quality-control review flags, and reproducible analysis records.
+Hendrix Mechanical Analytics Full-Stack is a web-based mechanical testing analysis platform for processing stress–strain datasets through an interactive React frontend, FastAPI backend, and PostgreSQL database.
 
-The platform is designed for engineering and research workflows where users need to analyze tensile-testing datasets, compare multiple samples, automatically clean experimental data, review material behavior, and preserve analysis history through a modern full-stack architecture.
+The platform allows researchers to upload mechanical-testing data, automatically clean stress–strain curves, calculate material properties, visualize results, and store analysis runs for reproducible review.
 
-Unlike the original Streamlit prototype, this application separates the frontend, backend, and database into a scalable web application that can be deployed entirely in the cloud.
+---
 
-Live Demo
+## Live Demo
 
-Frontend
+**Application**
 
 https://your-vercel-app.vercel.app
 
-API Documentation
+**API Documentation**
 
 https://your-render-backend.onrender.com/docs
 
-Citation
+---
 
-Hendrix, I. (2026). Hendrix Mechanical Analytics Full-Stack (Version 1.0.0) [Computer software].
+## Citation
 
-Demo Data
+Hendrix, I. (2026). *Hendrix Mechanical Analytics Full-Stack* (Version 1.0.0) [Computer software].
 
-Synthetic mechanical-testing datasets are included for testing.
+---
 
-Supported formats include:
+## Demo Data
 
-CSV
-TXT
-DAT
-TSV
-XLS
-XLSX
-ZIP archives
+Sample mechanical-testing datasets are included for demonstration purposes.
 
-The included datasets contain anonymized sample names and synthetic material behavior. They are provided solely for demonstration purposes and do not contain proprietary laboratory data.
+Supported formats:
 
-What It Does
+- CSV
+- TXT
+- DAT
+- TSV
+- XLS
+- XLSX
+- ZIP
 
-Hendrix Mechanical Analytics converts raw mechanical-testing exports into an interactive engineering analysis workflow.
+The included datasets are synthetic and do not contain proprietary research data.
 
-Users can upload one or many tensile-testing datasets, automatically detect stress and strain columns, clean experimental curves, calculate material properties, visualize stress–strain behavior, review automated quality-control warnings, and store every analysis inside a PostgreSQL database for future comparison.
+---
 
-The platform also includes an automated research review layer that evaluates data quality, identifies questionable modulus calculations, detects noisy or incomplete curves, and flags datasets that require manual inspection.
+## What It Does
 
-Key Features
-Data Upload
-Upload CSV, TXT, DAT, TSV, XLS, XLSX, or ZIP datasets
-Analyze single files or batch uploads
-Automatically detect stress and strain columns
-Expand ZIP archives into individual analyses
-Preserve sample names throughout analysis
-Data Cleaning
+Hendrix Mechanical Analytics provides an end-to-end workflow for mechanical-testing data analysis.
 
-Automatically performs
+Users can upload one or more datasets, automatically detect stress and strain columns, clean experimental curves, calculate material properties, visualize stress–strain behavior, and review automated quality-control results through a web interface.
 
-Baseline offset correction
-Negative stress clipping
-Savitzky–Golay smoothing
-Moving-average smoothing
-Spike/outlier removal
-Failure-point detection
-Post-failure cropping
+Each analysis is stored in a PostgreSQL database for reproducibility and future comparison.
 
-Cleaning operations are summarized for every uploaded sample.
+---
 
-Mechanical Analysis
+## Key Features
 
-Automatically calculates
+### Data Processing
 
-Maximum Load
-Peak Stress
-Strain at Peak Stress
-Young's Modulus
-Modulus Fit (R²)
-Area Under the Curve
-Number of Data Points
-Visualization
+- Upload individual files or batch datasets
+- Automatic stress/strain column detection
+- Support for ZIP archives
+- Batch analysis
 
-Display interactive Plotly dashboards showing
+### Data Cleaning
 
-Stress–strain curves
-Multiple sample overlays
-Material-property summaries
-Dataset statistics
-Cleaning summaries
-Quality-control status
-Database
+- Baseline offset correction
+- Negative stress clipping
+- Savitzky–Golay smoothing
+- Moving-average smoothing
+- Spike/outlier removal
+- Failure-point detection
+- Post-failure cropping
 
-Every uploaded analysis is automatically stored in PostgreSQL.
+### Material Property Analysis
 
-Stored information includes
+Automatically calculates:
 
-Filename
-Sample name
-Detected stress column
-Detected strain column
-Material metrics
-Warnings
-QA status
-Cleaned dataset
-Analysis timestamp
+- Maximum Load
+- Peak Stress
+- Strain at Peak
+- Young's Modulus
+- Modulus Fit (R²)
+- Area Under the Curve
 
-This creates a searchable and reproducible history of previous analyses.
+### Visualization
 
-Research Review Layer
+- Interactive Plotly stress–strain curves
+- Multi-sample comparison
+- Material-property summary tables
+- Cleaning notes
+- Analysis status flags
 
-The review layer is designed to make the platform more useful than a basic plotting dashboard.
+### Analysis Review
 
-It automatically
+Automatically identifies datasets that may require inspection by evaluating data quality, modulus fit, and preprocessing results.
 
-Detects poor modulus fits
-Flags questionable Young's modulus calculations
-Identifies noisy stress–strain curves
-Detects excessive negative stress values
-Detects abnormal failure behavior
-Flags datasets requiring manual review
-Separates review-worthy analyses from valid analyses
-Produces cleaning summaries for every uploaded dataset
+---
 
-The review system is entirely metric-driven and does not rely on external AI services or API keys.
+## Tech Stack
 
-Analysis Metrics
+**Frontend**
 
-Depending on the uploaded datasets, Hendrix Mechanical Analytics calculates
+- React
+- TypeScript
+- Vite
+- Plotly.js
 
-Maximum Load
-Peak Stress
-Strain at Peak
-Young's Modulus
-Modulus R²
-Area Under Curve
-Clean row count
-Stress/strain column detection
-Cleaning operations performed
-QA review status
+**Backend**
 
-Metrics are calculated after automated preprocessing to reduce experimental artifacts and improve consistency across datasets.
+- FastAPI
+- SQLAlchemy
+- Pandas
+- NumPy
+- SciPy
 
-Analysis Notes
+**Database**
 
-Baseline stress offsets are automatically removed before analysis.
+- PostgreSQL (Supabase)
 
-Negative stress values are clipped to zero.
+**Deployment**
 
-Outlier spikes may be removed when enabled.
+- Vercel
+- Render
+- GitHub
 
-Savitzky–Golay smoothing and moving-average smoothing are optional.
+---
 
-Datasets with poor modulus fits or unusual behavior are labeled Needs Review rather than automatically rejected.
-
-Automated review flags are intended to support engineering inspection and should not replace scientific judgment.
-
-Full-Stack Architecture
-React + TypeScript (Vite)
-            │
-            ▼
-      FastAPI Backend
-            │
-            ▼
- SQLAlchemy + Python Analysis Engine
-            │
-            ▼
- PostgreSQL Database (Supabase)
-
-Cloud Deployment
-
-GitHub
-Vercel
-Render
-Supabase PostgreSQL
-Tech Stack
-Frontend
-React
-TypeScript
-Vite
-Axios
-Plotly.js
-Backend
-FastAPI
-SQLAlchemy
-Pandas
-NumPy
-SciPy
-OpenPyXL
-Database
-PostgreSQL
-Supabase
-Cloud
-GitHub
-Vercel
-Render
-Run Locally
+## Run Locally
 
 Clone the repository
 
+```bash
 git clone https://github.com/ihendrix/hendrix-mechanical-analytics-fullstack.git
-
 cd hendrix-mechanical-analytics-fullstack
+```
+
 Backend
+
+```bash
 cd backend
-
-python -m venv .venv
-
-Windows
-
-.venv\Scripts\activate
-
-macOS/Linux
-
-source .venv/bin/activate
-
-Install dependencies
-
 pip install -r requirements.txt
-
-Run the API
-
 uvicorn app.main:app --reload
+```
 
-Backend
-
-http://localhost:8000
-
-API Documentation
-
-http://localhost:8000/docs
 Frontend
+
+```bash
 cd frontend
-
 npm install
-
 npm run dev
+```
 
-Frontend
+---
 
-http://localhost:5173
-Requirements
-Backend
-FastAPI
-SQLAlchemy
-Pandas
-NumPy
-SciPy
-OpenPyXL
-Uvicorn
-Frontend
-React
-TypeScript
-Vite
-Axios
-Plotly
-Project Structure
-hendrix-mechanical-analytics-fullstack
-│
+## Project Structure
+
+```text
+hendrix-mechanical-analytics-fullstack/
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── api.ts
-│   │   ├── App.tsx
-│   │   └── main.tsx
 │   ├── package.json
-│   ├── vite.config.ts
-│   └── tsconfig.json
-│
+│   └── vite.config.ts
 ├── backend/
 │   ├── app/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── database.py
-│   │   ├── models.py
-│   │   └── main.py
-│   └── requirements.txt
-│
+│   ├── requirements.txt
+│   └── main.py
 ├── sample_data/
-├── README.md
-└── docker-compose.yml
-Data Privacy
+└── README.md
+```
 
-This repository does not include proprietary laboratory datasets or private research data.
+---
 
-Users upload datasets through the web interface during runtime.
+## Data Privacy
 
-Any included sample datasets are synthetic and anonymized.
+This repository does not include proprietary laboratory datasets or private research data. Users upload datasets locally through the web interface during runtime.
 
-Use Case
+---
 
-This platform was developed as a reusable engineering software application for mechanical-testing data analysis.
+## Project Goal
 
-It supports tensile-testing workflows by automating stress–strain preprocessing, mechanical-property calculation, quality-control review, interactive visualization, cloud-based analysis storage, and reproducible engineering research.
-
-Project Goal
-
-The goal of Hendrix Mechanical Analytics Full-Stack is to move beyond desktop analysis software and spreadsheet-based workflows by providing a modern cloud-native platform for mechanical-testing analysis.
-
-The project combines automated preprocessing, scientific computing, interactive visualization, database-backed analysis history, and scalable web deployment into a single reusable research application suitable for engineering laboratories, academic research, and materials science workflows.
+The goal of Hendrix Mechanical Analytics Full-Stack is to provide a reusable, cloud-based platform for mechanical-testing data analysis that combines scientific computing, interactive visualization, and reproducible data management in a modern full-stack application.
