@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+
+title: Hendrix Mechanical Analytics Full-Stack
+
+message: "If you use this software, please cite it as follows."
+
+type: software
+
+authors:
+  - family-names: Hendrix
+    given-names: Isaiah
+
+version: 1.0.0
+
+date-released: 2026-07-13
+
+doi: 10.5281/zenodo.21365484
+
+repository-code: https://github.com/ihendrix/hendrix-mechanical-analytics-fullstack
+
+url: https://hendrix-mechanical-analytics-fullstack.app
+
+license: MIT
+
+keywords:
+  - mechanical testing
+  - materials science
+  - stress-strain
+  - FastAPI
+  - React
+  - PostgreSQL
+  - research software
