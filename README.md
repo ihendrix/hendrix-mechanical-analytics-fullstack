@@ -18,12 +18,6 @@ The platform allows researchers to upload mechanical-testing data, automatically
 
 ---
 
-## Citation
-
-Hendrix, I. (2026). *Hendrix Mechanical Analytics Full-Stack* (Version 1.0.0) [Computer software].
-
----
-
 ## Demo Data
 
 Sample mechanical-testing datasets are included for demonstration purposes.
